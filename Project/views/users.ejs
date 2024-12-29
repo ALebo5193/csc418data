@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Users List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user, index) => { %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.gender %></td>
+                    <td>
+                        <!-- Form for removing a user -->
+                        <form action="/remove-user/<%= index %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
