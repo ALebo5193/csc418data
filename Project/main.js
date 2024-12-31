@@ -1,9 +1,10 @@
 const express = require('express'),
-    path = require('path')
+    path = require('path'),
     app = express(),
     expressLayouts = require("express-ejs-layouts"),
-    homeController = require( './controllers/homeController' ),
-errorController = require( './controllers/errorController' );
+    homeController = require('./controllers/homeController'),
+    userController = require('./controllers/userController'),
+errorController = require('./controllers/errorController');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -17,9 +18,9 @@ app.set( 'port', process.env.PORT || 3000 );
 //routes
 app.get('/', homeController.showHome);
 app.get('/contact', homeController.showContact);
-app.post('/submit-contact', homeController.postedContactForm);
+app.post('/submit-contact', userController.postedContactForm);
 app.get('/users', homeController.showUsers);
-app.post('/remove-user/:index', homeController.removeUser);
+app.post('/remove-user/:index', userController.removeUser);
 
 //error handling
 app.use(errorController.pageNotFoundError);
