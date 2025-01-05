@@ -9,13 +9,16 @@
             </tr>
         </thead>
         <tbody>
-            <% users.forEach((user, index) => { %>
+            <% users.forEach((user) => { %>
                 <tr>
                     <td><%= user.name %></td>
                     <td><%= user.gender %></td>
                     <td>
-                        <!-- Form for removing a user -->
-                        <form action="/remove-user/<%= index %>" method="POST" style="display:inline;">
+                        <form action="/edit-user/<%= user._id %>" method="GET" style="display:inline;">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
+
+                        <form action="/users/<%= user._id %>/delete" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-danger">X</button>
                         </form>
                     </td>

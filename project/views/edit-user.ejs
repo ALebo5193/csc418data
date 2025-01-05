@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Edit User</h1>
+    <form action="/update-user/<%= user._id %>" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= user.name %>" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" class="form-control" required>
+                <option value="Male" <%= user.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option value="Female" <%= user.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                <option value="Other" <%= user.gender === 'Other' ? 'selected' : '' %>>Other</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="/users" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
