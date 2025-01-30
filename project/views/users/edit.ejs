@@ -1,9 +1,9 @@
 <div class="container">
     <h1>Edit User</h1>
-    <form action="/update-user/<%= user._id %>" method="POST">
+    <form id="editUserForm" method="POST" action="/api/users/<%= user.id %>?_method=PUT">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<%= user.name %>" class="form-control" required>
+            <input type="text" id="name" name="name" class="form-control" value="<%= user.name %>" required>
         </div>
         <div class="form-group">
             <label for="gender">Gender:</label>
